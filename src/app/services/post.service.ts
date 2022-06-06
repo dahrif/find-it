@@ -36,7 +36,7 @@ export class PostService {
  }
 
  loadCategoryPost(categoryId: any){
-  return this.afs.collection('posts', ref => ref.where('category.categoryId', '==', categoryId).limit(4)).snapshotChanges().pipe(
+  return this.afs.collection('posts', ref => ref.where('category.categoryId', '==', categoryId)).snapshotChanges().pipe(
     map(actions =>{
    return actions.map(a =>{
      const data = a.payload.doc.data();
@@ -50,7 +50,15 @@ export class PostService {
    return this.afs.doc(`posts/${postId}`).valueChanges();
  }
 
- loadSimilarPost(){
+ loadSimilarPost(catId : any){
+  return this.afs.collection('posts', ref => ref.where('category.categoryId', '==', catId).limit(3)).snapshotChanges().pipe(
+    map(actions =>{
+   return actions.map(a =>{
+     const data = a.payload.doc.data();
+     const id = a.payload.doc.id;
+     return {id, data}
+   })
+ }))
 
  }
 

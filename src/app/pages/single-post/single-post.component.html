@@ -18,10 +18,15 @@
             <app-comment-form></app-comment-form>
             <app-comment-list></app-comment-list>
         </div>
-        <div class="col-md-3">
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
+        <div class="col-md-3 mt-2">
+
+            <h3 class="mt-3 mx-2 text-theme-primary">Related posts</h3>
+
+            <div *ngFor="let similarPost of similarPostArray">
+                <app-post-card [postData]="similarPost"></app-post-card>
+            </div>
+            
+
         </div>
     </div>
 </div>
