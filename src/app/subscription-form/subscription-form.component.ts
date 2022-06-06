@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from '../models/subscriber';
 
 @Component({
   selector: 'app-subscription-form',
@@ -11,5 +12,12 @@ export class SubscriptionFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubmit(formVal: any){
+    const subData : Subscriber = {
+      name: formVal.name,
+      email: formVal.email
+  }
+}
 
 }
