@@ -71,7 +71,7 @@ export class PostService {
     views: firebase.default.firestore.FieldValue.increment(1)
   }
   this.afs.doc(`posts/${postId}`).update(viewsCount).then(() =>{
-    console.log('views updated');
+    
     
   })
 }

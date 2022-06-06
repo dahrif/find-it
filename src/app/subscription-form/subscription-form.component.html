@@ -8,6 +8,10 @@
           quasi quos voluptatem laborum officiis.
         </p>
 
+        <div *ngIf="isEmailError" class="alert alert-danger mt-3">
+            Email Already in use
+        </div>
+
         <form class="form-inline m-5" #subForm="ngForm" (ngSubmit)="onSubmit(subForm.value)">
           <div class="row">
             <div class="form-group col-md-5 my-1">

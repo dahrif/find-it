@@ -1,3 +1,4 @@
+import { SubscribersService } from './../services/subscribers.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscriber } from '../models/subscriber';
 
@@ -8,7 +9,9 @@ import { Subscriber } from '../models/subscriber';
 })
 export class SubscriptionFormComponent implements OnInit {
 
-  constructor() { }
+  isEmailError : boolean = false
+
+  constructor(private subService : SubscribersService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +21,19 @@ export class SubscriptionFormComponent implements OnInit {
       name: formVal.name,
       email: formVal.email
   }
+
+  // 
+
+  this.subService.checkSubs(subData.email).subscribe(val => {
+    console.log(val);
+    
+    if(val.empty){
+      this.subService.addSubs(subData)
+      
+    }else{
+      this.isEmailError = true;
+    }
+  })
 }
 
 }
