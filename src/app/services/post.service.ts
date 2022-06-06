@@ -46,6 +46,14 @@ export class PostService {
  }))
  }
 
+ loadOnePost(postId: any){
+   return this.afs.doc(`posts/${postId}`).valueChanges();
+ }
+
+ loadSimilarPost(){
+
+ }
+
 
 
 }

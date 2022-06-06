@@ -2,16 +2,16 @@
     <div class="row">
         <div class="col-md-9 mt-3">
             <div class="card shadow-effect ">
-                <img class="card-img-top img-fluid img-post" src="https://images.pexels.com/photos/11517500/pexels-photo-11517500.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                <img class="card-img-top img-fluid img-post" src="{{postData.postImgPath}}" alt="">
 
                 <div class="card-body">
-                    <small class="bg-light text-danger text-center mx-2">Design</small>
+                    <small class="bg-light text-danger text-center mx-2">{{postData.category.category}}</small>
                     <small class="bg-light text-success text-center mx-2">Featured</small>
-                    <small class="bg-light text-info text-center mx-2"> info </small>
-                    <small class="bg-light text-warning text-center mx-2"> Last Updated - sep 20, 2020</small>
+                    <small class="bg-light text-info text-center mx-2"> Views - {{postData.views}} </small>
+                    <small class="bg-light text-warning text-center mx-2"> Last Updated - {{postData.createdAt.toMillis() | date}}</small>
 
-                    <h1 class="my-3">Lorem ipsum dolor sit amet </h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eveniet saepe ducimus non ad rerum consequatur, inventore suscipit, officia esse, laborum fuga facere corrupti doloribus provident. Deleniti id tempora alias qui ducimus, temporibus vitae sequi. Et itaque perferendis, eos iste magnam mollitia quas necessitatibus autem unde excepturi libero? Cumque debitis ipsam quod rem, possimus, omnis temporibus distinctio molestiae facere quis, nam cupiditate? Delectus perferendis vel aperiam ratione! Reiciendis commodi, facere minima fugit, voluptates quibusdam voluptatibus laudantium corrupti nesciunt eum laborum.</p>
+                    <h1 class="my-3">{{postData.title}}</h1>
+                    <p [innerHtml]="postData.content"></p>
                 </div>
             </div>
 
