@@ -6,7 +6,7 @@
 
                 <div class="card-body">
                     <small class="bg-light text-danger text-center mx-2">{{postData.category.category}}</small>
-                    <small class="bg-light text-success text-center mx-2">Featured</small>
+                    <small *ngIf="postData.isFeatured" class="bg-light text-success text-center mx-2">Featured</small>
                     <small class="bg-light text-info text-center mx-2"> Views - {{postData.views}} </small>
                     <small class="bg-light text-warning text-center mx-2"> Last Updated - {{postData.createdAt.toMillis() | date}}</small>
 

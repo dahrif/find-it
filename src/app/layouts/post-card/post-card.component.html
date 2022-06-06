@@ -3,7 +3,7 @@
 
     <div class="card-body">
         <small class="bg-light text-danger text-center mx-2">{{postData.data.category.category}}</small>
-        <small class="bg-light text-success text-center mx-2">Featured</small>
+        <small *ngIf="postData.data.isFeatured" class="bg-light text-success text-center mx-2">Featured</small>
         <small class="bg-light text-info text-center mx-2">Views - {{ postData.data.views }}</small>
 
         <h5 class="mt-1">{{ postData.data.title }}</h5>
