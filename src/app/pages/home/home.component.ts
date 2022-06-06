@@ -9,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   featuredPostArray !: any[];
+  latestPostArray !: any[];
 
   constructor( private postService : PostService) {
 
     this.postService.loadFeatured().subscribe(val=>{
       this.featuredPostArray = val;
+    })
+
+    this.postService.loadLatest().subscribe(val =>{
+      this.latestPostArray = val
     })
    }
 

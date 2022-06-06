@@ -25,14 +25,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
+        <div class="col-md-4 mt-3" *ngFor="let latestPost of latestPostArray">
+            <app-post-card [postData]="latestPost"></app-post-card>
         </div>
     </div>
 </section>

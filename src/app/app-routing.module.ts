@@ -9,8 +9,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 const routes: Routes = [
   {path : '', component: HomeComponent},
-  {path : 'category', component: SingleCategoryComponent},
-  {path : 'post', component : SinglePostComponent},
+  {path : 'category/:category/:id', component: SingleCategoryComponent},
+  {path : 'post/:id', component : SinglePostComponent},
   {path : 'about', component : AboutUsComponent},
   {path : 'term-conditions', component : TermsAndConditionComponent},
   {path : 'contact', component: ContactUsComponent}
