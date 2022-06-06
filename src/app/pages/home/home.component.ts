@@ -1,3 +1,4 @@
+import { PostService } from 'src/app/services/post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  featuredPostArray !: any[];
+
+  constructor( private postService : PostService) {
+
+    this.postService.loadFeatured().subscribe(val=>{
+      this.featuredPostArray = val;
+    })
+   }
 
   ngOnInit(): void {
+
   }
 
 }

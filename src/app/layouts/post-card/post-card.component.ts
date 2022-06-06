@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -9,7 +9,11 @@ export class PostCardComponent implements OnInit {
 
   constructor() { }
 
+  @Input() postData !: any;
+
   ngOnInit(): void {
+    console.log(this.postData);
+    
   }
 
 }
