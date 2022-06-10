@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyASAc1j4Z6bZExSmWxRIHCnQNnyZvnJYck",
-  authDomain: "info-social.firebaseapp.com",
-  projectId: "info-social",
-  storageBucket: "info-social.appspot.com",
-  messagingSenderId: "868415552563",
-  appId: "1:868415552563:web:cbda5c9e19491175737746",
-  measurementId: "G-Q43TPCME55"
+    apiKey: "AIzaSyClVa6xB56SX4LTiNWHp3tUGlSXWS2PdWE",
+    authDomain: "recrutech-3db3e.firebaseapp.com",
+    projectId: "recrutech-3db3e",
+    storageBucket: "recrutech-3db3e.appspot.com",
+    messagingSenderId: "443467015745",
+    appId: "1:443467015745:web:719a7afe50e4223cb048c0",
+    measurementId: "G-EFFJ9EQXVL"
   }
 };

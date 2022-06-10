@@ -1,9 +1,0 @@
-footer{
-    height: 170px;
-    padding: 15px;
-    background-color: var(--navbar-footer-color);
-}
-
-.site-logo{
-    font-size: 1.2em;
-}

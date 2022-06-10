@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Deposer une annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
+<ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select  class="form-control"
+  formControlName="category"
+  [ngClass]="{
+    'is-invalid': fc.category.touched && fc.category.invalid
+  }">
+    <ion-select-option *ngFor="let category of categories"
+    value="{{ category.id }}-{{ category.data.category }}">{{ category.data.category }}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Titre</ion-label>
+  <ion-input
+  type="text"
+  class="form-control"
+  formControlName="title"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea 
+  class="form-control"
+  formControlName="content"
+  ></ion-textarea>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Date</ion-label>
+  <ion-input
+  type="date"
+  class="form-control"
+  formControlName="date"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Lieu</ion-label>
+  <ion-input
+  type="text"
+  class="form-control"
+  formControlName="lieu"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Numero de Telephone</ion-label>
+  <ion-input
+    type="tel"
+    class="form-control"
+    formControlName="numTel"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-thumbnail>
+    <img [src]="imgSrc">
+  </ion-thumbnail>
+  <ion-input
+    type="file"
+    accept="image/*"
+    class="form-control"
+    formControlName="title"
+    (change)="showPreview($event)"
+    formControlName="annonceImage"
+  ></ion-input>
+</ion-item>
+
+<ion-button type="submit" color="primary">Go</ion-button>
+
+</form>
+
+
+
+</ion-content>

@@ -1,51 +1,58 @@
-import { FormsModule } from '@angular/forms';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
+import { ListePage } from './annonces/liste/liste.page';
+import { AddAnnoncePage } from './annonces/add-annonce/add-annonce.page';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { environment } from 'src/environments/environment';
 
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { RouteReuseStrategy } from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { environment } from 'src/environments/environment.prod';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
+
+
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { CategoryNavbarComponent } from './layouts/category-navbar/category-navbar.component';
-import { FooterComponent } from './layouts/footer/footer.component';
-import { HomeComponent } from './pages/home/home.component';
-import { SingleCategoryComponent } from './pages/single-category/single-category.component';
-import { SinglePostComponent } from './pages/single-post/single-post.component';
-import { TermsAndConditionComponent } from './pages/terms-and-condition/terms-and-condition.component';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
-import { CommentFormComponent } from './comments/comment-form/comment-form.component';
-import { CommentListComponent } from './comments/comment-list/comment-list.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { PostCardComponent } from './layouts/post-card/post-card.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    CategoryNavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    SingleCategoryComponent,
-    SinglePostComponent,
-    TermsAndConditionComponent,
-    ContactUsComponent,
-    SubscriptionFormComponent,
-    CommentFormComponent,
-    CommentListComponent,
-    AboutUsComponent,
-    PostCardComponent,
+    LoginComponent,
+    AddAnnoncePage,
+    ListePage
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
+    FormsModule,
+
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
