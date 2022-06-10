@@ -1,6 +1,6 @@
 import { AnnonceService } from './../../services/annonce.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Annonce } from 'src/app/models/annonce';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from './../../services/category.service';
@@ -46,7 +46,7 @@ export class AddAnnoncePage implements OnInit {
             lieu: [this.annonce.lieu,Validators.required],
             numTel: [this.annonce.numTel,Validators.required],
             annonceImage: [''],            
-          }) 
+          })  
           
           this.imgSrc = this.annonce.annonceImgPath
           this.formStatus = "Edit"

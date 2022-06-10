@@ -1,3 +1,5 @@
+import { HomePage } from './home/home.page';
+import { AnnonceCardComponent } from './components/annonce-card/annonce-card.component';
 import { ListePage } from './annonces/liste/liste.page';
 import { AddAnnoncePage } from './annonces/add-annonce/add-annonce.page';
 import { NgModule } from '@angular/core';
@@ -32,7 +34,9 @@ import { LoginComponent } from './auth/login/login.component';
     AppComponent,
     LoginComponent,
     AddAnnoncePage,
-    ListePage
+    ListePage,
+    AnnonceCardComponent,
+    HomePage
   ],
   imports: [
     BrowserModule,
