@@ -87,4 +87,16 @@ updateData(id: any, annonceData: any){
     this.toastr.info('active Status updated')
   })
  }
+
+  loadActive() {
+
+    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true).limit(4)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+  }
 }

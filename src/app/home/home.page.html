@@ -13,6 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-annonce-card></app-annonce-card>
+  <div *ngFor="let activeAnnonce of activeAnnonceArray">
+  <app-annonce-card [annonceData]="activeAnnonce"></app-annonce-card>
+
+  </div>
+
 
 </ion-content>

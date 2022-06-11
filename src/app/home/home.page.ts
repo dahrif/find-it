@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnnonceService } from '../services/annonce.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  activeAnnonceArray!: any[];
+
+  constructor(private annonceService : AnnonceService) {
+
+    this.annonceService.loadActive().subscribe(val => {
+      this.activeAnnonceArray = val;
+    })
+
+  }
 
 }
