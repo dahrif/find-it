@@ -12,7 +12,7 @@
       <!-- <ion-title size="large">Blank</ion-title> -->
     </ion-toolbar>
   </ion-header>
-  <ion-button [routerLink]="['/login']">add</ion-button>
+  <ion-button [routerLink]="['/add-annonce']">add</ion-button>
 
   <div *ngFor="let activeAnnonce of activeAnnonceArray">
   <app-annonce-card [annonceData]="activeAnnonce"></app-annonce-card>

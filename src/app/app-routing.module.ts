@@ -1,4 +1,5 @@
-import { LoginPage } from './auth/login/login.page';
+import { LoginPage } from './pages/login/login.page';
+
 import { ListePage } from './annonces/liste/liste.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -41,6 +42,19 @@ const routes: Routes = [
     path: 'login',
     component: LoginPage
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+  },
+
 
 ];
 
