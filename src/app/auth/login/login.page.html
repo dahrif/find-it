@@ -11,7 +11,10 @@
 
           <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
             <div class="form-group">
-              <input
+
+              <ion-item>
+                <ion-label position="floating">Titre</ion-label>
+                <ion-input
                 type="email"
                 class="form-control"
                 placeholder="Email"
@@ -21,14 +24,18 @@
                 required
                 email
                 [ngClass]="{'is-invalid': Email.touched && Email.invalid}"
-              />
-              <div class="text-danger" *ngIf="Email.touched && Email.invalid">
+                ></ion-input>
+
+                <div class="text-danger" *ngIf="Email.touched && Email.invalid">
                   <div *ngIf="Email.errors?.required">Email required</div>
                   <div *ngIf="Email.errors?.email">Email format invalid</div>
                 </div>
-            </div>
-            <div class="form-group mt-2">
-              <input
+
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Titre</ion-label>
+                <ion-input
                 type="password"
                 class="form-control mt-2"
                 placeholder="Password"
@@ -37,12 +44,17 @@
                 ngModel
                 required
                 [ngClass]="{'is-invalid': Password.touched && Password.invalid}"
-
-              />
-              <div class="text-danger" *ngIf="Password.touched && Password.invalid">Password required</div>
+                ></ion-input>
+              </ion-item>
             </div>
+            
+              <div class="text-danger" *ngIf="Password.touched && Password.invalid">Password required</div>
 
-            <button class="btn-block btn-primary btn-theme mt-2" [disabled]="loginForm.invalid">Login</button>
+              <ion-item>
+                <ion-button class="btn-block btn-primary btn-theme mt-2" [disabled]="loginForm.invalid">Login</ion-button>
+
+              </ion-item>
+
           </form>
         </div>
       </div>

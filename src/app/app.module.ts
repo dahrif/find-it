@@ -1,3 +1,4 @@
+import { LoginPage } from './auth/login/login.page';
 import { HomePage } from './home/home.page';
 import { AnnonceCardComponent } from './components/annonce-card/annonce-card.component';
 import { ListePage } from './annonces/liste/liste.page';
@@ -28,16 +29,17 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './auth/login/login.component';
+import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AddAnnoncePage,
     ListePage,
     AnnonceCardComponent,
-    HomePage
+    HomePage,
+    SingleAnnoncePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
