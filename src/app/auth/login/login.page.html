@@ -1,19 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="card p-5 shadow-effect bg-secondary-theme">
-        <div class="card-body">
-          <div class="text-center">
-            <h3 class="text-theme-primary">Login</h3>
-            <p>Login to admin dashboard</p>
-          </div>
-
-          <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
-            <div class="form-group">
-
+          
+          <ion-header>
+            <h3>Login Page</h3>
+          </ion-header>
+          
+          <ion-content>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
               <ion-item>
-                <ion-label position="floating">Titre</ion-label>
+                <ion-label position="floating">Email</ion-label>
                 <ion-input
                 type="email"
                 class="form-control"
@@ -34,7 +27,7 @@
               </ion-item>
 
               <ion-item>
-                <ion-label position="floating">Titre</ion-label>
+                <ion-label position="floating">Password</ion-label>
                 <ion-input
                 type="password"
                 class="form-control mt-2"
@@ -46,18 +39,14 @@
                 [ngClass]="{'is-invalid': Password.touched && Password.invalid}"
                 ></ion-input>
               </ion-item>
-            </div>
             
               <div class="text-danger" *ngIf="Password.touched && Password.invalid">Password required</div>
 
               <ion-item>
                 <ion-button class="btn-block btn-primary btn-theme mt-2" [disabled]="loginForm.invalid">Login</ion-button>
-
               </ion-item>
 
           </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+       
+          </ion-content>
+          
