@@ -1,5 +1,5 @@
-<ion-card *ngIf="annonceData" [routerLink]="['/annonces', annonceData.id]">
-  <ion-card-header>
+<!-- <ion-card *ngIf="annonceData" (click)="navigate()"> -->
+  <!-- <ion-card-header>
     <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
     <ion-card-title>{{annonceData.data.title}}</ion-card-title>
   </ion-card-header>
@@ -7,5 +7,27 @@
   <ion-card-content>
     Keep close to Nature's heart... and break clear away, once in awhile,
     and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
+  </ion-card-content> -->
+
+
+
+  <ion-item-group *ngIf="annonceData" (click)="navigate()">
+    <ion-item class="ion-padding-vertical popItem" >
+      <ion-thumbnail slot="start">
+        <!-- <div class="ion-text-center">
+          <ion-text color="white">URGENT</ion-text>
+        </div> -->
+        <p class="ion-text-center">
+          <img src="{{annonceData?.data?.annonceImgPath}}"/>
+        </p>
+      </ion-thumbnail>
+      <ion-label>
+        <ion-note color="dark"><b>{{annonceData?.data?.title}}</b></ion-note>
+        <p class="ion-text-wrap">{{annonceData?.data?.date}}</p>
+        <p>
+          <ion-text color="dark">{{annonceData?.data?.lieu}}</ion-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-item-group>
+<!-- </ion-card>  -->

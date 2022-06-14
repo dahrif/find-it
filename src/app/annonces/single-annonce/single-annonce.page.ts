@@ -1,3 +1,5 @@
+import { AnnonceService } from 'src/app/services/annonce.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleAnnoncePage implements OnInit {
 
-  constructor() { }
+  annonceData : any;
+
+  constructor(private route: ActivatedRoute, private annonceService : AnnonceService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(val =>{
+      
+      this.annonceService.loadOneData(val['id']).subscribe(annonce =>{
+        this.annonceData = annonce;
+      })
+    })
   }
 
 }

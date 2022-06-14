@@ -14,10 +14,23 @@
   </ion-header>
   <ion-button [routerLink]="['/add-annonce']">add</ion-button>
 
-  <div *ngFor="let activeAnnonce of activeAnnonceArray">
+  <div class="ion-padding" (ionChange)="segmentChanged($event)">
+    <ion-segment mode="ios" [value]="segmentValue">
+      <ion-segment-button *ngFor="let category of categoryArray; let i = index"  value={{i+1}}>
+        <ion-label [routerLink]="['/category',category.data.category, category.id]">{{category.data.category}}</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <div *ngFor="let activeAnnonce of activeAnnonceArray; let item of (segmentValue == '1') ? requests : donors">
   <app-annonce-card [annonceData]="activeAnnonce"></app-annonce-card>
 
   </div>
+
+  <!-- <div *ngFor="let annonce of annonceArray">
+    <app-post-card [annonceData]="annonce"></app-post-card>
+</div> -->
 
 
 </ion-content>

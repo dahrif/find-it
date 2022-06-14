@@ -35,12 +35,12 @@ import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page
     AnnonceCardComponent,
     HomePage,
     SingleAnnoncePage,
-    LoginPage
+    LoginPage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
     AppRoutingModule,
+    IonicModule.forRoot(),
     FormsModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -54,10 +54,8 @@ import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

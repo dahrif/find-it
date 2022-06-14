@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-annonce-card',
@@ -7,10 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AnnonceCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   @Input() annonceData !: any;
 
   ngOnInit() {}
+
+  navigate = () => {
+    this.router.navigate(['/annonces',this.annonceData.id]);
+    
+  }
+
 
 }

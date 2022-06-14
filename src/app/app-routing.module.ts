@@ -30,12 +30,12 @@ const routes: Routes = [
     path: 'liste',
     component: ListePage,
   },
+  // {
+  //   path: 'annonce',
+  //   component: SingleAnnoncePage,
+  // },
   {
-    path: 'annonce',
-    component: SingleAnnoncePage,
-  },
-  {
-    path: 'post/:id',
+    path: 'annonces/:id',
     component: SingleAnnoncePage,
   },
   {

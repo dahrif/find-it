@@ -90,7 +90,7 @@ updateData(id: any, annonceData: any){
 
   loadActive() {
 
-    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true).limit(4)).snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -99,4 +99,15 @@ updateData(id: any, annonceData: any){
         })
       }))
   }
+
+  loadCategoryAnnonce(categoryId: any){
+    return this.afs.collection('annonces', ref => ref.where('category.categoryId', '==', categoryId)).snapshotChanges().pipe(
+      map(actions =>{
+     return actions.map(a =>{
+       const data = a.payload.doc.data();
+       const id = a.payload.doc.id;
+       return {id, data}
+     })
+   }))
+   }
 }

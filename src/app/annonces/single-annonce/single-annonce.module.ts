@@ -13,7 +13,7 @@ import { SingleAnnoncePage } from './single-annonce.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SingleAnnoncePageRoutingModule
+    // SingleAnnoncePageRoutingModule
   ],
   declarations: []
 })
