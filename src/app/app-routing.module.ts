@@ -21,6 +21,7 @@ const routes: Routes = [
   {
     path: 'add-annonce',
     component: AddAnnoncePage,
+    canActivate: [AuthGuard]
   },
   {
     path: 'annonces',
@@ -54,6 +55,11 @@ const routes: Routes = [
     path: 'verify-email',
     loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
 
 
 ];

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
 
 <form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
@@ -78,7 +78,11 @@
   ></ion-input>
 </ion-item>
 
-<ion-button type="submit" color="primary">Valider</ion-button>
+<div class="btn">
+  <ion-button expand="block" type="submit" color="primary">Valider</ion-button>
+</div>
+ 
+
 
 </form>
 
