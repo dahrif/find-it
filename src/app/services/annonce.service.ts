@@ -28,7 +28,7 @@ export class AnnonceService {
         annonceData.annonceImgPath = URL;
         console.log(annonceData);
 
-        if (formStatus == 'Edit') {
+        if (formStatus == 'Modifier votre annonce') {
           this.updateData(id, annonceData)
         } else {
           this.saveData(annonceData);

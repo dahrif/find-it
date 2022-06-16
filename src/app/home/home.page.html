@@ -23,14 +23,10 @@
     </ion-segment>
   </div>
 
-  <div *ngFor="let activeAnnonce of activeAnnonceArray; let item of (segmentValue == '1') ? requests : donors">
+  <div *ngFor="let activeAnnonce of activeAnnonceArray">
   <app-annonce-card [annonceData]="activeAnnonce"></app-annonce-card>
 
   </div>
-
-  <!-- <div *ngFor="let annonce of annonceArray">
-    <app-post-card [annonceData]="annonce"></app-post-card>
-</div> -->
 
 
 </ion-content>

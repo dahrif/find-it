@@ -14,7 +14,6 @@ export class ListePage implements OnInit {
 
   ngOnInit() {
     this.annonceService.loadData().subscribe(val => {
-      console.log(val);
       this.annonceArray = val;
       
     })
