@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router';
-import { Annonce } from '../models/annonce';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class AnnonceService {
     private storage: AngularFireStorage,
     private afs : AngularFirestore,
     private toastr : ToastrService,
-    private router : Router,
+    private router : Router
   ) { }
 
   uploadImage(selectedImage: any, annonceData: any, formStatus: any, id:any){
@@ -29,7 +28,7 @@ export class AnnonceService {
         annonceData.annonceImgPath = URL;
         console.log(annonceData);
 
-        if (formStatus == 'z') {
+        if (formStatus == 'Modifier votre annonce') {
           this.updateData(id, annonceData)
         } else {
           this.saveData(annonceData);

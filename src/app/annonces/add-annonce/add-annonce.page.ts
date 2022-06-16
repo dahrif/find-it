@@ -103,7 +103,7 @@ export class AddAnnoncePage implements OnInit {
       isActive: true,
       status: 'new',
       createdAt: new Date(),
-      // userId: ''
+      userId: ''
     }
     this.annonceService.uploadImage(this.selectedImg, annonceData,this.formStatus, this.docId);
     this.annonceForm.reset();
