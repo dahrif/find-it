@@ -1,5 +1,3 @@
-import { LoginPage } from './pages/login/login.page';
-
 import { ListePage } from './annonces/liste/liste.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -31,17 +29,9 @@ const routes: Routes = [
     path: 'liste',
     component: ListePage,
   },
-  // {
-  //   path: 'annonce',
-  //   component: SingleAnnoncePage,
-  // },
   {
     path: 'annonces/:id',
     component: SingleAnnoncePage,
-  },
-  {
-    path: 'login',
-    component: LoginPage
   },
   {
     path: 'register',
@@ -57,7 +47,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
 
 

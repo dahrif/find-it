@@ -18,6 +18,4 @@ export class AnnonceCardComponent implements OnInit {
     this.router.navigate(['/annonces',this.annonceData.id]);
     
   }
-
-
 }

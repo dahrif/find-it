@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AnnonceService {
 
+  userId : string = JSON.parse (localStorage.getItem('user') || '{}').uid;
   constructor(
     private storage: AngularFireStorage,
     private afs : AngularFirestore,
@@ -54,6 +55,17 @@ export class AnnonceService {
        return {id, data}
      })
    }))
+ }
+
+  loadList(){
+    return this.afs.collection('annonces', ref => ref.where('userId', '==', this.userId)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
  }
 
  loadOneData(id : any){

@@ -14,12 +14,9 @@
   <ion-item-group *ngIf="annonceData" (click)="navigate()">
     <ion-item class="ion-padding-vertical popItem" >
       <ion-thumbnail slot="start">
-        <!-- <div class="ion-text-center">
-          <ion-text color="white">URGENT</ion-text>
-        </div> -->
-        <p class="ion-text-center">
+
           <img src="{{annonceData?.data?.annonceImgPath}}"/>
-        </p>
+
       </ion-thumbnail>
       <ion-label>
         <ion-note color="dark"><b>{{annonceData?.data?.title}}</b></ion-note>

@@ -21,6 +21,7 @@ export class AddAnnoncePage implements OnInit {
   annonce: any;
   formStatus : string = 'Deposer une annonce';
   docId !: string;
+  userEmail: any;
 
   constructor(
     private categoryService : CategoryService,
@@ -103,7 +104,7 @@ export class AddAnnoncePage implements OnInit {
       isActive: true,
       status: 'new',
       createdAt: new Date(),
-      userId: ''
+      userId: this.userEmail = JSON.parse (localStorage.getItem('user') || '{}').uid,
     }
     this.annonceService.uploadImage(this.selectedImg, annonceData,this.formStatus, this.docId);
     this.annonceForm.reset();

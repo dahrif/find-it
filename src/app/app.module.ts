@@ -1,4 +1,3 @@
-import { LoginPage } from './pages/login/login.page';
 import { HomePage } from './home/home.page';
 import { AnnonceCardComponent } from './components/annonce-card/annonce-card.component';
 import { ListePage } from './annonces/liste/liste.page';
@@ -35,7 +34,6 @@ import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page
     AnnonceCardComponent,
     HomePage,
     SingleAnnoncePage,
-    LoginPage,
   ],
   imports: [
     BrowserModule,

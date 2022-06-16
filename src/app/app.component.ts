@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth.guard';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private authGuard : AuthGuard) {
+    
+  }
 }
