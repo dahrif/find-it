@@ -4,7 +4,7 @@
   </ion-toolbar>
 
   <div class="ion-padding" (ionChange)="segmentChanged($event)">
-    <ion-segment [value]="segmentValue">
+    <ion-segment mode="ios" [value]="segmentValue" >
       <ion-segment-button *ngFor="let category of categoryArray; let i = index" value={{i+1}}>
         <ion-label>{{category.data.category}}</ion-label>
       </ion-segment-button>
