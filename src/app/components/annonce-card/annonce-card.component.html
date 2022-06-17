@@ -11,7 +11,8 @@
 
 
 
-  <ion-item-group *ngIf="annonceData" (click)="navigate()">
+  
+    <ion-card *ngIf="annonceData" (click)="navigate()">
     <ion-item class="ion-padding-vertical popItem" >
       <ion-thumbnail slot="start">
 
@@ -26,5 +27,7 @@
         </p>
       </ion-label>
     </ion-item>
-  </ion-item-group>
-<!-- </ion-card>  -->
+  </ion-card>
+
+
+  

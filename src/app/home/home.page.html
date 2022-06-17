@@ -4,7 +4,7 @@
   </ion-toolbar>
 
   <div class="ion-padding" (ionChange)="segmentChanged($event)">
-    <ion-segment mode="ios" [value]="segmentValue">
+    <ion-segment [value]="segmentValue">
       <ion-segment-button *ngFor="let category of categoryArray; let i = index" value={{i+1}}>
         <ion-label>{{category.data.category}}</ion-label>
       </ion-segment-button>
@@ -14,7 +14,7 @@
 
 </ion-header>
 
-<ion-content [scrollEvents]="true" (ionScroll)="scroll($event)" #myContent>
+<ion-content [scrollEvents]="true" #myContent>
 
   <!-- <ion-list lines="none">
     <ion-item color="light">
@@ -52,7 +52,7 @@
     </ion-item-group>
   </ion-list> -->
   
-  <div *ngFor="let objPerdu of  (segmentValue == '1') ? objPerduArray : activeAnnonceArray">
+  <div *ngFor="let objPerdu of  (segmentValue == '1') ? objPerduArray : objTrouveArray">
   <app-annonce-card [annonceData]="objPerdu"></app-annonce-card>
   </div>
 

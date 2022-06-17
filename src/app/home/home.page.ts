@@ -11,9 +11,8 @@ export class HomePage {
   activeAnnonceArray!: any[];
   segmentValue = '1';
   categoryArray: any[];
-  annonceArray!: any[];
   objPerduArray!: any[];
-  newHeight = 0;
+  objTrouveArray!: any[];
 
   constructor(
     private annonceService: AnnonceService,
@@ -22,12 +21,16 @@ export class HomePage {
   ) {
 
     this.annonceService.loadTrouve().subscribe((val) => {
-      this.activeAnnonceArray = val;
+      this.objTrouveArray = val;
     });
 
     
     this.annonceService.loadPerdu().subscribe((val) => {
       this.objPerduArray = val;
+    });
+
+    this.annonceService.loadActive().subscribe((val) => {
+      this.activeAnnonceArray = val;
     });
   }
 
@@ -39,21 +42,7 @@ export class HomePage {
   }
 
   segmentChanged(event) {
-    console.log(event);
     this.segmentValue = event.detail.value;
-  }
-
-  scroll(event) {
-    const value = event.detail.scrollTop;
-    console.log(value, this.newHeight);
-    if(value > 40) {
-      this.newHeight += 5; // this.newHeight = this.newHeight + 5
-    } else {
-      this.newHeight = 0;
-    }
-    if(value > 180 && this.newHeight <= 65) {
-      this.newHeight += 50;
-    }
   }
 
   

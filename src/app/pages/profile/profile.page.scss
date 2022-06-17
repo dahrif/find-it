@@ -52,20 +52,9 @@ $shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
           
       }
       
-      .social-icons {
-          margin-top: 1.2em;
-          justify-content: space-between;
-          
-          .icon {
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-              
-              p {
-                  color: #666B7D;
-                  font-size: 15px;		
-              }
-          }
-      }
+  }
+
+  ion-button{
+    margin-left: 10vw;
   }
   
