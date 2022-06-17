@@ -72,13 +72,13 @@ export class AnnonceService {
   return this.afs.doc(`annonces/${id}`).valueChanges();
 }
 
-updateData(id: any, annonceData: any){
+ updateData(id: any, annonceData: any){
 
   this.afs.doc(`annonces/${id}`).update(annonceData).then(()=>{
     this.toastr.success('Data updated successfully');
     this.router.navigate(['/annonces'])
   })
- }
+}
 
  deleteImage(annonceImgPath: any, id: any){
   this.storage.storage.refFromURL(annonceImgPath).delete().then(() =>{
