@@ -1,21 +1,60 @@
-<ion-header>
+ <ion-header>
   <ion-toolbar>
     <ion-title> Blank </ion-title>
   </ion-toolbar>
-</ion-header>
 
-<ion-content>
   <div class="ion-padding" (ionChange)="segmentChanged($event)">
     <ion-segment mode="ios" [value]="segmentValue">
       <ion-segment-button *ngFor="let category of categoryArray; let i = index" value={{i+1}}>
-        <ion-label [routerLink]="['/category',category.data.category, category.id]">{{category.data.category}}</ion-label>
+        <ion-label>{{category.data.category}}</ion-label>
       </ion-segment-button>
 
     </ion-segment>
   </div>
 
-  <div *ngFor="let activeAnnonce of activeAnnonceArray">
-  <app-annonce-card [annonceData]="activeAnnonce"></app-annonce-card>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="scroll($event)" #myContent>
+
+  <!-- <ion-list lines="none">
+    <ion-item color="light">
+      <ion-label class="heading">Plasma{{segmentValue == '1' ? ' objPerduArray' : ' activeAnnonceArray'}} near you</ion-label>
+      <ion-button slot="end" fill="clear" size="small">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item-group>
+      <ion-item class="ion-padding-vertical popItem" 
+        *ngFor="let item of (segmentValue == '1') ? objPerduArray : activeAnnonceArray">
+        <ion-thumbnail slot="start">
+          <div class="ion-text-center" *ngIf="segmentValue == '1'">
+            <ion-text color="white">URGENT</ion-text>
+          </div>
+          <p class="ion-text-center" [style.margin]="segmentValue == '1' ? '10px 0' : '20px 0'">
+            <ion-text color="white">{{item?.title}}</ion-text>
+          </p>
+        </ion-thumbnail>
+        <ion-label>
+          <ion-note color="dark"><b>{{item?.content}}</b></ion-note>
+          <p class="ion-text-wrap">{{item?.title}}</p>
+          <p>
+            <ion-text color="dark">{{item?.title}}</ion-text>
+            <ion-text color="dark"><span>&#9679;</span>{{item?.title}}</ion-text>
+          </p>
+        </ion-label>
+        <ion-fab vertical="top" horizontal="end">
+          <ion-fab-button size="small" color="white">
+            <img [src]="item?.photo"/>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-item>
+    </ion-item-group>
+  </ion-list> -->
+  
+  <div *ngFor="let objPerdu of  (segmentValue == '1') ? objPerduArray : activeAnnonceArray">
+  <app-annonce-card [annonceData]="objPerdu"></app-annonce-card>
   </div>
 
 </ion-content>
+

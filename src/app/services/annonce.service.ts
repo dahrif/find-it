@@ -68,16 +68,7 @@ export class AnnonceService {
       }))
  }
 
-  loadPerdus(){
-    return this.afs.collection('annonces', ref => ref.where('category', '==', 'Perdu')).snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, data }
-        })
-      }))
- }
+
 
  loadOneData(id : any){
   return this.afs.doc(`annonces/${id}`).valueChanges();
@@ -114,6 +105,30 @@ export class AnnonceService {
   loadActive() {
 
     return this.afs.collection('annonces', ref => ref.where('isActive', '==', true)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+  }
+
+  loadPerdu() {
+
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Perdu')).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+  }
+
+  loadTrouve() {
+
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Trouvé')).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
