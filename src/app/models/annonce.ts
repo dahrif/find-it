@@ -12,5 +12,6 @@ export interface Annonce {
     isActive: boolean,
     status: string,
     createdAt: Date,
+    userId: string
 
 }

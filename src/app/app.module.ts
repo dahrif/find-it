@@ -16,46 +16,42 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-
-
-
-
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './auth/login/login.component';
+import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AddAnnoncePage,
     ListePage,
     AnnonceCardComponent,
-    HomePage
+    HomePage,
+    SingleAnnoncePage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
     AppRoutingModule,
+    IonicModule.forRoot(),
     FormsModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
 
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -19,8 +19,9 @@ export class AddAnnoncePage implements OnInit {
   categories !: any[];
   annonceForm!: FormGroup;
   annonce: any;
-  formStatus : string = 'Add New';
+  formStatus : string = 'Deposer une annonce';
   docId !: string;
+  userEmail: any;
 
   constructor(
     private categoryService : CategoryService,
@@ -29,43 +30,41 @@ export class AddAnnoncePage implements OnInit {
     private route : ActivatedRoute
   ) { 
 
-    this.route.queryParams.subscribe(val =>{
+    this.annonceForm = this.fb.group({
+      category: ['', Validators.required],
+      title: ['',[Validators.required, Validators.minLength(10)]],
+      content: ['',Validators.required],
+      date: ['',Validators.required],
+      lieu: ['',Validators.required],
+      numTel: ['',Validators.required], 
+      annonceImage: [''], 
+    }) 
 
+    this.route.queryParams.subscribe(val =>{
       this.docId = val.id;
 
       if (this.docId) {
         this.annonceService.loadOneData(val.id).subscribe(annonce =>{
-
           this.annonce = annonce;
 
           this.annonceForm = this.fb.group({
-            category: [this.annonce.category.categoryId + '-'+this.annonce.category.category, Validators.required],
-            title: [this.annonce.title,[Validators.required, Validators.minLength(10)]],
-            content: [this.annonce.content,Validators.required],
-            date: [this.annonce.date,Validators.required],
-            lieu: [this.annonce.lieu,Validators.required],
-            numTel: [this.annonce.numTel,Validators.required],
+            category: [this.annonce.category.categoryId + '-'+this.annonce.category.category],
+            title: [this.annonce.title],
+            content: [this.annonce.content],
+            date: [this.annonce.date],
+            lieu: [this.annonce.lieu],
+            numTel: [this.annonce.numTel],
             annonceImage: [''],            
           })  
           
           this.imgSrc = this.annonce.annonceImgPath
-          this.formStatus = "Edit"
+          this.formStatus = "Modifier votre annonce"
         })
-      } else {
-        this.annonceForm = this.fb.group({
-          category: ['', Validators.required],
-          title: ['',[Validators.required, Validators.minLength(10)]],
-          content: ['',Validators.required],
-          date: ['',Validators.required],
-          lieu: ['',Validators.required],
-          numTel: ['',Validators.required], 
-          annonceImage: [''], 
-        }) 
       }
-
-
     })
+
   }
+
 
   ngOnInit() {
     this.categoryService.loadData().subscribe(val =>{
@@ -74,7 +73,7 @@ export class AddAnnoncePage implements OnInit {
   }
 
   get fc(){
-    return this.annonceForm.controls
+      return this.annonceForm.controls
   }
 
   showPreview(event:any){
@@ -105,6 +104,7 @@ export class AddAnnoncePage implements OnInit {
       isActive: true,
       status: 'new',
       createdAt: new Date(),
+      userId: this.userEmail = JSON.parse (localStorage.getItem('user') || '{}').uid,
     }
     this.annonceService.uploadImage(this.selectedImg, annonceData,this.formStatus, this.docId);
     this.annonceForm.reset();

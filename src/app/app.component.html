@@ -1,19 +1,21 @@
 <ion-app>
-  <ion-menu side="start" menuId="first" contentId="main">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
   <ion-router-outlet></ion-router-outlet>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/add-annonce']" tab="add-annonce">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button [routerLink]="['/home']" tab="home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-tab-button>
+  
+        
+      <ion-tab-button [routerLink]="['/profile']" tab="profile">
+        <ion-icon name="person-circle"></ion-icon>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-app>

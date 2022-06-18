@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Deposer une annonce</ion-title>
+    <ion-title>{{formStatus}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
 
 <form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
@@ -31,14 +31,14 @@
 
 <ion-item>
   <ion-label position="floating">Description</ion-label>
-  <ion-textarea 
+  <ion-input 
   class="form-control"
   formControlName="content"
-  ></ion-textarea>
+  ></ion-input>
 </ion-item>
 
 <ion-item>
-  <ion-label position="floating">Date</ion-label>
+  <ion-label>Date</ion-label>
   <ion-input
   type="date"
   class="form-control"
@@ -72,13 +72,16 @@
     type="file"
     accept="image/*"
     class="form-control"
-    formControlName="title"
     (change)="showPreview($event)"
     formControlName="annonceImage"
   ></ion-input>
 </ion-item>
 
-<ion-button type="submit" color="primary">Go</ion-button>
+<div class="btn">
+  <ion-button expand="block" type="submit" color="primary">Valider</ion-button>
+</div>
+ 
+
 
 </form>
 

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AnnonceService {
 
+  userId : string = JSON.parse (localStorage.getItem('user') || '{}').uid;
   constructor(
     private storage: AngularFireStorage,
     private afs : AngularFirestore,
@@ -28,7 +29,7 @@ export class AnnonceService {
         annonceData.annonceImgPath = URL;
         console.log(annonceData);
 
-        if (formStatus == 'Edit') {
+        if (formStatus == 'Modifier votre annonce') {
           this.updateData(id, annonceData)
         } else {
           this.saveData(annonceData);
@@ -56,17 +57,30 @@ export class AnnonceService {
    }))
  }
 
+  loadList(){
+    return this.afs.collection('annonces', ref => ref.where('userId', '==', this.userId)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+ }
+
+
+
  loadOneData(id : any){
   return this.afs.doc(`annonces/${id}`).valueChanges();
 }
 
-updateData(id: any, annonceData: any){
+ updateData(id: any, annonceData: any){
 
   this.afs.doc(`annonces/${id}`).update(annonceData).then(()=>{
     this.toastr.success('Data updated successfully');
     this.router.navigate(['/annonces'])
   })
- }
+}
 
  deleteImage(annonceImgPath: any, id: any){
   this.storage.storage.refFromURL(annonceImgPath).delete().then(() =>{
@@ -90,7 +104,7 @@ updateData(id: any, annonceData: any){
 
   loadActive() {
 
-    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true).limit(4)).snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -99,4 +113,39 @@ updateData(id: any, annonceData: any){
         })
       }))
   }
+
+  loadPerdu() {
+
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Perdu')).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+  }
+
+  loadTrouve() {
+
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Trouvé')).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      }))
+  }
+
+  loadCategoryAnnonce(categoryId: any){
+    return this.afs.collection('annonces', ref => ref.where('category.categoryId', '==', categoryId)).snapshotChanges().pipe(
+      map(actions =>{
+     return actions.map(a =>{
+       const data = a.payload.doc.data();
+       const id = a.payload.doc.id;
+       return {id, data}
+     })
+   }))
+   }
 }

@@ -20,21 +20,30 @@ export class AuthGuard implements CanActivate {
     private toastr: ToastrService
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  // canActivate(
+  //   route: ActivatedRouteSnapshot,
+  //   state: RouterStateSnapshot
+  // ):
+  //   | Observable<boolean | UrlTree>
+  //   | Promise<boolean | UrlTree>
+  //   | boolean
+  //   | UrlTree {
 
-    if (this.authService.isLoggedInGuard) {
-      return true;
-    } else {
-      this.toastr.warning('You dont have access to this page')
-      this.router.navigate(['login']);
-      return false;
-    }
+  //   if (this.authService.isLoggedInGuard) {
+  //     return true;
+  //   } else {
+  //     this.toastr.warning('You dont have access to this page')
+  //     this.router.navigate(['login']);
+  //     return false;
+  //   }
+  // }
+
+  canActivate(): boolean {
+    if (this.authService.isLoggedIn) {
+          return true;
   }
+  else{
+    this.router.navigate(['login']);
+  }
+}
 }

@@ -1,0 +1,74 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign in User</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form>    
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item> 
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col> 
+      <ion-button type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content> -->
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Login </ion-title>
+
+  </ion-toolbar>
+
+
+</ion-header>
+ 
+<ion-content>
+
+  <div class="background-pic">
+    <div class="background-filter">
+  <form>
+    <ion-card>
+      <ion-card-header>
+        <img src="" />
+
+      </ion-card-header>
+    <ion-card-content>
+    
+    <ion-item>
+      <!-- <ion-label position="floating">Email</ion-label> -->
+      <ion-input type="text" placeholder="Email Adress" #email></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <!-- <ion-label position="floating">Password</ion-label> -->
+      <ion-input placeholder="Password" type="password" #password></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- <ion-label position="floating">Password</ion-label> -->
+      <ion-button  type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
+    </ion-item>
+ 
+
+  </ion-card-content>
+</ion-card>
+
+  </form>
+</div>
+</div>
+</ion-content>

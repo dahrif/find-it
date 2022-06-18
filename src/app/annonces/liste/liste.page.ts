@@ -13,8 +13,7 @@ export class ListePage implements OnInit {
   constructor(private annonceService : AnnonceService) { }
 
   ngOnInit() {
-    this.annonceService.loadData().subscribe(val => {
-      console.log(val);
+    this.annonceService.loadList().subscribe(val => {
       this.annonceArray = val;
       
     })
