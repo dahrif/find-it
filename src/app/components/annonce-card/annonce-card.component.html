@@ -1,11 +1,14 @@
 <ion-card *ngIf="annonceData" [routerLink]="['/annonces', annonceData.id]">
   <ion-card-header>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    <ion-card-title>{{annonceData.data.title}}</ion-card-title>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="{{annonceData.data.annonceImgPath}}" />
+      </ion-thumbnail>
+      <ion-label>{{annonceData.data.title}}</ion-label>
+    </ion-item>
   </ion-card-header>
 
   <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    {{annonceData.data.content}}
   </ion-card-content>
 </ion-card>

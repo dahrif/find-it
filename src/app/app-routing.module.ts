@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: 'liste',
     loadChildren: () => import('./annonces/liste/liste.module').then( m => m.ListePageModule)
+  },  {
+    path: 'annonce',
+    loadChildren: () => import('./pages/annonce/annonce.module').then( m => m.AnnoncePageModule)
   },
+
 
 
 
