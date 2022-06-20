@@ -25,6 +25,20 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+// fonts
+@font-face {
+  font-family: nunito;
+  src: url("assets/fonts/Nunito-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: questrial;
+  src: url("assets/fonts/Questrial-Regular.ttf");
+}
+
+  *{
+    font-family: questrial;
+  }
 
   ion-button{
     width: 80vw;
