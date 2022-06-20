@@ -102,9 +102,9 @@ export class AnnonceService {
   })
  }
 
-  loadActive() {
+  loadDesactive() {
 
-    return this.afs.collection('annonces', ref => ref.where('isActive', '==', true)).snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.where('isActive', '==', false)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();

@@ -19,7 +19,7 @@ export class AddAnnoncePage implements OnInit {
   categories !: any[];
   annonceForm!: FormGroup;
   annonce: any;
-  formStatus : string = 'Deposer une annonce';
+  formStatus : string = 'Déclarer un objet';
   docId !: string;
   userEmail: any;
 

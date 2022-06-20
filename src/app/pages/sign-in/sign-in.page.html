@@ -1,0 +1,78 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header class="ion-no-border ">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button mode="md" defaultHref="/Welcome" color="primary"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row class="logo ">
+    <ion-col>
+      <ion-img src="assets/imgs/travel.png"></ion-img>
+      <ion-label>
+        TangerInfo
+        <p class="ion-text-left">with me</p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer  >
+  <ion-list lines="full">
+    <ion-list-header class="ion-margin">
+      <ion-label>
+        Welcome Back
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item-group class="ion-margin-horizontal">
+      <form [formGroup]="loginForm" autocomplete="off">
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input formControlName="email" type="email" placeholder="Email Address">
+         
+            </ion-input>
+          </ion-item>
+          <ion-text class="error" color="danger" > {{formError.email}}  </ion-text>
+        </div>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input formControlName="password" type="password" placeholder="Password">
+          
+            </ion-input>
+          </ion-item>
+         <ion-text class="error" color="danger" > {{formError.password}}  </ion-text>
+       
+        </div>
+
+        <!-- <p class="ion-text-right"><ion-text color="primary">Forgot Password?</ion-text></p> -->
+
+        <ion-button 
+          size="large" 
+          expand="block" 
+          shape="round" 
+          color="primary" 
+          [disabled]="loginForm.invalid">
+          <ion-text color="white"   (click)="loginWithEmailPassword()" >Sign in</ion-text>
+        </ion-button>
+      </form>
+    </ion-item-group>
+
+    <p class="ion-text-center">
+      <ion-text>or sign in with</ion-text>
+    </p>
+
+    <p class="ion-text-center">
+  
+      <ion-icon name="logo-google" color="danger"></ion-icon>
+  
+    </p>
+
+  </ion-list>
+</ion-footer>

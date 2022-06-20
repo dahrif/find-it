@@ -1,3 +1,4 @@
+import { SwiperModule } from 'swiper/angular';
 import { HomePage } from './home/home.page';
 import { AnnonceCardComponent } from './components/annonce-card/annonce-card.component';
 import { ListePage } from './annonces/liste/liste.page';
@@ -52,6 +53,7 @@ import { SingleAnnoncePage } from './annonces/single-annonce/single-annonce.page
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SwiperModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

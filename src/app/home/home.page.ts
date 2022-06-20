@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AnnonceService } from '../services/annonce.service';
 import { CategoryService } from '../services/category.service';
+import SwiperCore, { EffectFade, SwiperOptions } from 'swiper';
+
+SwiperCore.use([EffectFade]);
 
 @Component({
   selector: 'app-home',
@@ -8,11 +11,14 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  activeAnnonceArray!: any[];
+  desactiveAnnonceArray!: any[];
   segmentValue = '1';
   categoryArray: any[];
   objPerduArray!: any[];
   objTrouveArray!: any[];
+
+  config: SwiperOptions;
+  config1: SwiperOptions;
 
   constructor(
     private annonceService: AnnonceService,
@@ -29,8 +35,8 @@ export class HomePage {
       this.objPerduArray = val;
     });
 
-    this.annonceService.loadActive().subscribe((val) => {
-      this.activeAnnonceArray = val;
+    this.annonceService.loadDesactive().subscribe((val) => {
+      this.desactiveAnnonceArray = val;
     });
   }
 
@@ -45,5 +51,13 @@ export class HomePage {
     this.segmentValue = event.detail.value;
   }
 
+  ngAfterContentChecked() {
+    this.config = {
+      slidesPerView: 2.1
+    };
+    this.config1 = {
+      slidesPerView: 2
+    };
+  }
   
 }

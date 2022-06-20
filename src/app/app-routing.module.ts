@@ -22,15 +22,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'annonces',
-    component: ListePage,
-  },
-  {
     path: 'liste',
     component: ListePage,
   },
   {
-    path: 'annonces/:id',
+    path: 'liste/:id',
     component: SingleAnnoncePage,
   },
   {

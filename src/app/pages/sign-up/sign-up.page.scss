@@ -1,0 +1,66 @@
+ion-content {
+    --background: url('/assets/imgs/taxi2.jpg') no-repeat center center/cover;
+    ion-header {
+        ion-toolbar {
+            --background: transparent;
+        }
+    }
+    ion-row {
+        ion-img {
+            height: 9vh;
+            width: 9vh;
+            margin-bottom: 2vh;
+        }
+        ion-label, p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--ion-color-white);
+        }
+    }
+    .logo {
+        margin: 0 0 0 5vh;
+    }
+}
+
+ion-footer {
+    ion-list {
+        border-radius: 20px 20px 0 0;
+        ion-list-header {
+            ion-label, p {
+                font-weight: bold;
+                font-size: 1.5rem;
+                letter-spacing: 0.5px;
+            }
+        }
+        ion-item {            
+            ion-input, ion-label {
+                font-size: 0.9em;
+            }   
+            ion-input {
+                ion-icon {
+                    margin-right: 1vh;
+                }
+            } 
+        }
+        .error {
+            font-size: 0.75em !important;
+        }
+        p {
+            ion-text {
+                font-size: 0.8em !important;
+            }
+            ion-icon {
+                margin: 0 1vh;
+                font-size: 1.6em;
+            }
+        }
+
+        ion-button {
+            margin: 5vh 0 2vh 0;
+            ion-text {
+                font-size: 0.9em;
+                text-transform: none;
+            }
+        }
+    }
+}
