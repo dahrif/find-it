@@ -15,7 +15,7 @@ export class AnnonceCardComponent implements OnInit {
   ngOnInit() {}
 
   navigate = () => {
-    this.router.navigate(['/annonces',this.annonceData.id]);
+    this.router.navigate(['/annonce',this.annonceData.id]);
     
   }
 }

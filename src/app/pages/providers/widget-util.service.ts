@@ -30,21 +30,21 @@ export class WidgetUtilService {
   }
 
 
-  async presentLoading() {
-    this.loading = await this.loadingController.create({
-      spinner: null,
-      duration: 5000,
-      message: 'Please wait...',
-      translucent: true,
+  // async presentLoading() {
+  //   this.loading = await this.loadingController.create({
+  //     spinner: null,
+  //     duration: 5000,
+  //     message: 'Please wait...',
+  //     translucent: true,
   
-    });
-   return  await this.loading.present();
+  //   });
+  //  return  await this.loading.present();
 
   
-  }
+  // }
 
-  async dismissLoader(){
-    await this.loading.dismiss ();
-  }
+  // async dismissLoader(){
+  //   await this.loading.dismiss ();
+  // }
  
 }

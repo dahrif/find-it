@@ -36,7 +36,7 @@ export class AppComponent {
 
 
   getAuthState() {
-    this.widgetUtilService.presentLoading();
+    // this.widgetUtilService.presentLoading();
     this.firebaseAuthService.getAuthState().subscribe(user => {
       console.log('user auth state===', user ? user.toJSON() : null);
       if (user) {
@@ -46,7 +46,7 @@ export class AppComponent {
         this.isLoggedIn = false;
       }
       this.handleNavigation();
-      this.widgetUtilService.dismissLoader();
+      // this.widgetUtilService.dismissLoader();
 
     // }, (error) => {
     //   this.widgetUtilService.dismissLoader();

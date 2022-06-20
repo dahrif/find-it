@@ -25,7 +25,7 @@ const routes: Routes = [
     component: ListePage,
   },
   {
-    path: 'liste/:id',
+    path: 'annonce/:id',
     component: SingleAnnoncePage,
   },
   {

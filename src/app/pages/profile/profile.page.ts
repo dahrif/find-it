@@ -45,7 +45,8 @@ export class ProfilePage implements OnInit {
       await this.firebaseAuthService.logout();
       this.widgetUtilService.presentToast('Logout Success');
       this.router.navigate(['/login']);
-      localStorage.removeItem('user')
+      window.location.reload();
+      localStorage.removeItem('user');
     } catch (error) {
       console.log('Error', error);
       this.widgetUtilService.presentToast(error.message);
