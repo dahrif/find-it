@@ -19,7 +19,6 @@ const routes: Routes = [
   {
     path: 'add-annonce',
     component: AddAnnoncePage,
-    canActivate: [AuthGuard]
   },
   {
     path: 'liste',
@@ -31,11 +30,11 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
   {
     path: 'verify-email',
@@ -44,7 +43,6 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
   },
 
 

@@ -2,19 +2,12 @@
 
   <ion-header class="ion-no-border ">
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button mode="md" defaultHref="/Welcome" color="primary"></ion-back-button>
-      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <ion-row class="logo ">
+  <ion-row>
     <ion-col>
-      <ion-img src="assets/imgs/travel.png"></ion-img>
-      <ion-label>
-        TangerInfo
-        <p class="ion-text-left">with me</p>
-      </ion-label>
+      <ion-img src="../../../assets/logo/logo.png"></ion-img>
     </ion-col>
   </ion-row>
 
@@ -24,7 +17,7 @@
   <ion-list lines="full">
     <ion-list-header class="ion-margin">
       <ion-label>
-        Welcome Back
+        Se connecter
       </ion-label>
     </ion-list-header>
 
@@ -42,7 +35,7 @@
 
         <div class="ion-margin-vertical">
           <ion-item>
-            <ion-label position="stacked">Password</ion-label>
+            <ion-label position="stacked">Mot de passe</ion-label>
             <ion-input formControlName="password" type="password" placeholder="Password">
           
             </ion-input>
@@ -59,19 +52,15 @@
           shape="round" 
           color="primary" 
           [disabled]="loginForm.invalid">
-          <ion-text color="white"   (click)="loginWithEmailPassword()" >Sign in</ion-text>
+          <ion-text color="light"   (click)="loginWithEmailPassword()" >Connexion</ion-text>
         </ion-button>
       </form>
     </ion-item-group>
 
     <p class="ion-text-center">
-      <ion-text>or sign in with</ion-text>
-    </p>
-
-    <p class="ion-text-center">
-  
-      <ion-icon name="logo-google" color="danger"></ion-icon>
-  
+      <ion-text>Vous n'avez pas de compte ?</ion-text>
+      <ion-text [routerLink]="['/register']" color="secondary">Créez votre compte</ion-text>
+    
     </p>
 
   </ion-list>

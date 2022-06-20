@@ -1,3 +1,4 @@
+import { FirebaseAuthService } from 'src/app/pages/providers/firebase-auth.service';
 import { AnnonceService } from './../../services/annonce.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -27,7 +28,8 @@ export class AddAnnoncePage implements OnInit {
     private categoryService : CategoryService,
     private fb: FormBuilder,
     private annonceService : AnnonceService,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private firebaseAuthService : FirebaseAuthService
   ) { 
 
     this.annonceForm = this.fb.group({
@@ -111,5 +113,6 @@ export class AddAnnoncePage implements OnInit {
 
     this.imgSrc= './assets/img-preview.jpg'
   }
+
 
 }

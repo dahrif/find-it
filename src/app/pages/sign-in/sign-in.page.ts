@@ -1,10 +1,12 @@
+import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HelperService } from 'src/app/pages/welcome/providers/helper.service';
+import { HelperService } from 'src/app/pages/providers/helper.service';
 import { FirebaseAuthService } from '../providers/firebase-auth.service';
 import { WidgetUtilService } from '../providers/widget-util.service';
 import { LOGIN } from './../constants/formValidationMessage';
 import { Router } from '@angular/router';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,6 +24,7 @@ export class SignInPage implements OnInit {
   };
   validationMessage: any = LOGIN; 
   showLoginSpinner: boolean = false;
+  userData: any[];
  
 
   constructor(private helperService: HelperService, private router: Router, private firebaseAuthService: FirebaseAuthService,
@@ -67,12 +70,22 @@ resetForm() {
 async loginWithEmailPassword() {
   try {
     this.showLoginSpinner = true;
+
     const result = await this.firebaseAuthService.loginWithEmailPassword(this.email.value, this.password.value);
+
     console.log('result==', result);
+
     this.showLoginSpinner = false;
-    this.widgetUtilService.presentToast('Login Success!');
+    // localStorage.setItem('user', result);
+
+    this.widgetUtilService.presentToast('Bienvenu!');
+
     this.resetForm();
-    this.router.navigate(['/tabs/home']);
+
+    this.router.navigate(['/home']);
+
+   
+
   } catch (error) {
     console.log('Error', error);
     this.showLoginSpinner = false;
@@ -83,7 +96,6 @@ async loginWithEmailPassword() {
 
 onFormValueChanged(data){
 this.formError = this.helperService.prepareValidationMessage(this.loginForm, this.validationMessage, this.formError);
-// console.log('===formError', this.formError);
 }
 }
 

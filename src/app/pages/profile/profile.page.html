@@ -1,9 +1,9 @@
 <div class="wrapper">
 	
 	<div class="profile">
-		<img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
+		<img src="{{profileInfo.photoURL || 'assets/logo/logo.png'}}" class="thumbnail">
 		<h3 class="name">Beverly Little</h3>
-		<p class="title">{{userEmail}}</p>
+		<p class="title">{{profileInfo.email}}</p>
     <div class="description">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
     </div>
@@ -14,6 +14,6 @@
 
     <ion-button fill="outline" [routerLink]="['/liste']">Mes annonces</ion-button>
 
-    <ion-button color="danger" (click)="logOut()">Se deconnecter</ion-button>
+    <ion-button color="danger" (click)="logout()">Se deconnecter</ion-button>
 
 	</div>

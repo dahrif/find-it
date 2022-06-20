@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <ion-tabs>
+  <ion-tabs *ngIf="isLoggedIn">
     <ion-tab-bar slot="bottom">
       <ion-tab-button [routerLink]="['/add-annonce']" tab="add-annonce">
         <ion-icon name="add-outline"></ion-icon>

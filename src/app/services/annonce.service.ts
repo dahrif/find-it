@@ -41,7 +41,7 @@ export class AnnonceService {
   saveData(annonceData:any){
     this.afs.collection('annonces').add(annonceData).then(docRef =>{
       this.toastr.success('Data insert successfully');
-      this.router.navigate(['/annonces'])
+      this.router.navigate(['/liste'])
     })  
   }
 
