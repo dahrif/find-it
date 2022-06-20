@@ -39,13 +39,13 @@ ion-header {
     background: var(--ion-color-light);
     ion-segment {
       --background: var(--ion-color-white);
-      border-radius: 20px;
+      border-radius: 5px;
       --margin-top: 5px;
       --margin-bottom: 5px;
       ion-segment-button {
         --background-checked: var(--ion-color-primary);
         --indicator-color: var(--ion-color-primary);
-        --border-radius: 20px;
+        --border-radius: 5px;
         --color: var(--ion-color-primary);
         --color-checked: var(--ion-color-light);
         font-size: 1rem;

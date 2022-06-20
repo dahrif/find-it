@@ -1,5 +1,6 @@
 import { AuthGuard } from './services/auth.guard';
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
