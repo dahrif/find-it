@@ -1,19 +1,13 @@
 <div class="wrapper">
 	
 	<div class="profile">
-		<img src="{{profileInfo.photoURL || 'assets/logo/logo.png'}}" class="thumbnail">
-		<h3 class="name">Beverly Little</h3>
-		<p class="title">{{profileInfo.email}}</p>
-    <div class="description">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-    </div>
+		<img src="{{profileInfo.photoURL || 'assets/images/avatar.png'}}" class="thumbnail">
+		<h3 class="name">{{profileInfo.email}}</h3>
 
 	</div>
-	
-	<div>
 
     <ion-button fill="outline" [routerLink]="['/liste']">Mes annonces</ion-button>
 
     <ion-button color="danger" (click)="logout()">Se deconnecter</ion-button>
 
-	</div>
+</div>

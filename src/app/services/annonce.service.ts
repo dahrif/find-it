@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AnnonceService {
 
-  userId : string = JSON.parse (localStorage.getItem('user') || '{}').uid;
+  userId : string = JSON.parse (localStorage.getItem('user')).uid;  
   constructor(
     private storage: AngularFireStorage,
     private afs : AngularFirestore,
@@ -47,7 +47,7 @@ export class AnnonceService {
 
   loadData(){
 
-    return this.afs.collection('annonces').snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.orderBy('createdAt', "desc")).snapshotChanges().pipe(
       map(actions =>{
      return actions.map(a =>{
        const data = a.payload.doc.data();
@@ -78,7 +78,7 @@ export class AnnonceService {
 
   this.afs.doc(`annonces/${id}`).update(annonceData).then(()=>{
     this.toastr.success('Data updated successfully');
-    this.router.navigate(['/annonces'])
+    this.router.navigate(['/liste'])
   })
 }
 
@@ -116,7 +116,7 @@ export class AnnonceService {
 
   loadPerdu() {
 
-    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Perdu')).snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Perdu').where('isActive', '==', true)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -128,7 +128,7 @@ export class AnnonceService {
 
   loadTrouve() {
 
-    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Trouvé')).snapshotChanges().pipe(
+    return this.afs.collection('annonces', ref => ref.where('category.category', '==', 'Trouvé').where('isActive', '==', true)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();

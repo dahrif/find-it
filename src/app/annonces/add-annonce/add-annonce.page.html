@@ -82,6 +82,7 @@
 
 <div class="btn">
   <ion-button expand="block" type="submit" color="primary">Valider</ion-button>
+  <ion-button expand="block" *ngIf="formStatus =='Modifier votre annonce'" (click)="annuler()" color="danger">Annuler</ion-button>
 </div>
  
 

@@ -44,7 +44,6 @@
         <ion-button 
           size="large" 
           expand="block" 
-          shape="round" 
           color="primary" 
           [disabled]="loginForm.invalid">
           <ion-text color="light"   (click)="loginWithEmailPassword()" >Connexion</ion-text>
@@ -53,9 +52,10 @@
     </ion-item-group>
 
     <p class="ion-text-center">
-      <ion-text>Vous n'avez pas de compte ?</ion-text>
+      <ion-text>Vous n'avez pas de compte ?</ion-text>   
+    </p>
+    <p class="ion-text-center">
       <ion-text [routerLink]="['/register']" color="secondary">Créez votre compte</ion-text>
-    
     </p>
 
   </ion-list>

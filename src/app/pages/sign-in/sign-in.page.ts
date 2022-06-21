@@ -83,6 +83,7 @@ async loginWithEmailPassword() {
     this.resetForm();
 
     this.router.navigate(['/home']);
+    window.location.reload();
 
    
 

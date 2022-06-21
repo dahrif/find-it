@@ -7,11 +7,46 @@
 <ion-content>
 
   <ion-card>
+
     <img src="{{annonceData?.annonceImgPath}}" alt="">
-    <h3>{{annonceData?.content}}</h3>
-    <h3>{{annonceData?.date}}</h3>
-    <h3>{{annonceData?.lieu}}</h3>
-    <h3>{{annonceData?.numTel}}</h3>
+    <ion-row>
+      <ion-col>
+        <h3>Détails: </h3>
+      </ion-col>
+      <ion-col>
+        <h3>{{annonceData?.content}}</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Date: </h3>
+      </ion-col>
+      <ion-col>
+        <h3>{{annonceData?.date}}</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Lieu: </h3>
+      </ion-col>
+      <ion-col>
+        <h3>{{annonceData?.lieu}}</h3>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <h3>Téléphone: </h3>
+      </ion-col>
+      <ion-col>
+        <h3><a href="tel:{{annonceData?.numTel}}">{{annonceData?.numTel}}</a></h3>
+      </ion-col>
+    </ion-row>
+
+    
+
   </ion-card>
 
 

@@ -3,7 +3,7 @@ import { AnnonceService } from './../../services/annonce.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Annonce } from 'src/app/models/annonce';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from './../../services/category.service';
 
 
@@ -29,7 +29,7 @@ export class AddAnnoncePage implements OnInit {
     private fb: FormBuilder,
     private annonceService : AnnonceService,
     private route : ActivatedRoute,
-    private firebaseAuthService : FirebaseAuthService
+    private router : Router
   ) { 
 
     this.annonceForm = this.fb.group({
@@ -112,6 +112,12 @@ export class AddAnnoncePage implements OnInit {
     this.annonceForm.reset();
 
     this.imgSrc= './assets/img-preview.jpg'
+  }
+
+  annuler(){
+    this.annonceForm.reset();
+    this.imgSrc= './assets/img-preview.jpg'
+    this.router.navigate(['/liste']);
   }
 
 
