@@ -39,9 +39,9 @@
 
       <ion-icon size="large" name="create-outline" color="success"  routerLink="/add-annonce" [queryParams]="{id:annonce.id}"></ion-icon>
 
-      <ion-icon size="large" name="checkmark-outline" color="primary"*ngIf="!annonce.data.isActive" (click)="active(annonce.id, true)"></ion-icon>
+      <ion-icon size="large" name="checkmark" color="primary"*ngIf="!annonce.data.isActive" (click)="active(annonce.id, true)"></ion-icon>
 
-      <ion-icon size="large" name="checkmark-outline" color="danger"*ngIf="annonce.data.isActive" (click)="active(annonce.id, false)"></ion-icon>
+      <ion-icon size="large" name="checkmark" color="danger"*ngIf="annonce.data.isActive" (click)="active(annonce.id, false)"></ion-icon>
   </ion-item-options>
 
   </ion-item-sliding>

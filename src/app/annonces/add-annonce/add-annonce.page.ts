@@ -23,6 +23,7 @@ export class AddAnnoncePage implements OnInit {
   formStatus : string = 'Déclarer un objet';
   docId !: string;
   userEmail: any;
+  viewMsg: boolean = false;
 
   constructor(
     private categoryService : CategoryService,
@@ -36,7 +37,7 @@ export class AddAnnoncePage implements OnInit {
       category: ['', Validators.required],
       title: ['',[Validators.required, Validators.minLength(10)]],
       content: ['',Validators.required],
-      date: ['',Validators.required],
+      date: ['',Validators.required ],
       lieu: ['',Validators.required],
       numTel: ['',Validators.required], 
       annonceImage: [''], 
@@ -89,7 +90,10 @@ export class AddAnnoncePage implements OnInit {
   }
 
   onSubmit(){
-    
+    if(new Date(this.annonceForm.value.date) > new Date()){
+      this.viewMsg = true;
+      return;
+    }
     let splitted = this.annonceForm.value.category.split('-');
     
     const annonceData : Annonce = {

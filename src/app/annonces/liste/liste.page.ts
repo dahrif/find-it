@@ -21,7 +21,7 @@ export class ListePage implements OnInit {
 
   deleteAnnonce(annonceImgPath: any, id: any){
 
-    if ((confirm('Are you sure you want to delete this post ?'))) {
+    if ((confirm('Êtes-vous sûr de supprimer cette annonce ?'))) {
       this.annonceService.deleteImage(annonceImgPath, id);
     }    
   }

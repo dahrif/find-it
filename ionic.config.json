@@ -1,7 +1,8 @@
 {
   "name": "Find-it",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
