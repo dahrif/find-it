@@ -19,7 +19,7 @@ export class ProfilePage implements OnInit {
   profileAvailable: boolean = false;
   profileInfo: any = {};
 
-  constructor(private firebaseAuthService:FirebaseAuthService, private router: Router, private widgetUtilService: WidgetUtilService, ) {}
+  constructor(private firebaseAuthService:FirebaseAuthService, private router: Router, private widgetUtilService: WidgetUtilService) {}
 
   ngOnInit() {
     this.getUserProfile();

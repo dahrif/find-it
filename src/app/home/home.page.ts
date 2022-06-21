@@ -1,3 +1,6 @@
+import { WidgetUtilService } from './../pages/providers/widget-util.service';
+import { Router } from '@angular/router';
+import { FirebaseAuthService } from './../pages/providers/firebase-auth.service';
 import { Component } from '@angular/core';
 import { AnnonceService } from '../services/annonce.service';
 import { CategoryService } from '../services/category.service';
@@ -20,9 +23,17 @@ export class HomePage {
   config: SwiperOptions;
   config1: SwiperOptions;
 
+  userEmail!: string;
+  userData !: any;
+  profileAvailable: boolean = false;
+  profileInfo: any = {};
+
   constructor(
     private annonceService: AnnonceService,
     private categoryService: CategoryService,
+    private firebaseAuthService:FirebaseAuthService, 
+    private router: Router, 
+    private widgetUtilService: WidgetUtilService
     
   ) {
 
@@ -44,7 +55,22 @@ export class HomePage {
     this.categoryService.loadData().subscribe((val) => {
       this.categoryArray = val;
     });
+    this.getUserProfile();
 
+  }
+
+  getUserProfile() {
+    this.profileAvailable = false;
+    this.firebaseAuthService.getAuthState().subscribe(user => {
+      if (user) {
+        this.profileInfo = user.toJSON();
+      }
+      this.profileAvailable = true;
+    }, (error) => {
+      this.profileAvailable = true;
+      this.widgetUtilService.presentToast(error.message);
+      this.router.navigate(['/login']);
+    });
   }
 
   segmentChanged(event) {

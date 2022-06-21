@@ -1,7 +1,6 @@
 import { FirebaseAuthService } from './pages/providers/firebase-auth.service';
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { WidgetUtilService } from './pages/providers/widget-util.service';
 import { Router } from '@angular/router';
 
